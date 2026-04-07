@@ -1,11 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "api/instagram.js", "use": "@vercel/node" },
-    { "src": "public/**", "use": "@vercel/static" }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/instagram.js" },
-    { "src": "/(.*)", "dest": "/public/$1" }
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/instagram" },
+    { "source": "/(.*)", "destination": "/public/$1" }
   ]
 }
